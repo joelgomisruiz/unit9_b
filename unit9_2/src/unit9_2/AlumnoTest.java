@@ -97,6 +97,59 @@ public class AlumnoTest {
 		
 		assertEquals(150.00f, new Alumno().calculaTasaMatricula(edad, numerosa, repetidor), 1e-8);
 	}
+	
+	@Test
+	public void testvalidaNif(){
+		
+		String nif = "20081591S";
+		
+		assertEquals(true, new Alumno().validaNif(nif));
+	}
+	
+	@Test
+	public void testvalidaNifA(){
+		
+		String nif = "";
+		
+		assertEquals(false, new Alumno().validaNif(nif));
+	}
+	@Test
+	public void testvalidaNifB(){
+		
+		String nif = "2008159A";
+		
+		assertEquals(false, new Alumno().validaNif(nif));
+	}
+	@Test
+	public void testvalidaNifC(){
+		
+		String nif = "2008159a";
+		
+		assertEquals(false, new Alumno().validaNif(nif));
+	}
+	
+	@Test
+	public void testvalidaNifD(){
+		
+		String nif = "AAAAAAAAA";
+		
+		assertEquals(false, new Alumno().validaNif(nif));
+	}
+	@Test
+	public void testvalidaNife(){
+		
+		String nif = "AAAAAA";
+		
+		assertEquals(false, new Alumno().validaNif(nif));
+	}
+	
+	@Test
+	public void testvalidaNifF(){
+		
+		String nif = "20081591SA";
+		
+		assertEquals(false, new Alumno().validaNif(nif));
+	}
 
 
 }
